@@ -1,4 +1,3 @@
-
 <?php
 require_once 'koneksi.php';
 
@@ -21,11 +20,12 @@ $jumlah = mysqli_num_rows($hasil);
 <table border="1">
     <tr>
         <th>No</th>
-        <th>ID Anggota</th>
-        <th>Nama Anggota</th>
-        <th>Alamat Anggota</th>
-        <th>Kota Anggota</th>
-        <th>Telepon Anggota</th>
+        <th>No Anggota</th>
+        <th>Nama Lengkap</th>
+        <th>Email</th>
+        <th>No HP</th>
+        <th>Jenis Anggota</th>
+        <th>Alamat</th>
         <th>Aksi</th>
     </tr>
 
@@ -35,17 +35,18 @@ $jumlah = mysqli_num_rows($hasil);
     ?>
     <tr>
         <td><?php echo $no++; ?></td>
-        <td><?php echo htmlspecialchars($baris["id_anggota"]); ?></td>
-        <td><?php echo htmlspecialchars($baris["nama_anggota"]); ?></td>
-        <td><?php echo htmlspecialchars($baris["alamat_anggota"]); ?></td>
-        <td><?php echo htmlspecialchars($baris["kota_anggota"]); ?></td>
-        <td><?php echo htmlspecialchars($baris["telp_anggota"]); ?></td>
+        <td><?php echo htmlspecialchars($baris["no_anggota"]); ?></td>
+        <td><?php echo htmlspecialchars($baris["nama_lengkap"]); ?></td>
+        <td><?php echo htmlspecialchars($baris["email"]); ?></td>
+        <td><?php echo htmlspecialchars($baris["no_hp"]); ?></td>
+        <td><?php echo htmlspecialchars($baris["jenis_anggota"]); ?></td>
+        <td><?php echo htmlspecialchars($baris["alamat"]); ?></td>
         <td>
-            <a href="detail.php?id=<?php echo urlencode($baris["id_anggota"]); ?>">Detail</a>
+            <a href="detail.php?id=<?php echo urlencode($baris["id"]); ?>">Detail</a>
 
             <form action="hapus.php" method="post"
                 onsubmit="return confirm('Yakin ingin menghapus data ini?');">
-                <input type="hidden" name="id" value="<?php echo htmlspecialchars($baris["id_anggota"]); ?>">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($baris["id"]); ?>">
                 <button type="submit">Hapus</button>
             </form>
         </td>
